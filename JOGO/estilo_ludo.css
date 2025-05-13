@@ -1,0 +1,12 @@
+body{
+    background-color: forestgreen;
+}
+
+
+#ludoCanvas{
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    background-color: white;
+}
+
