@@ -1,0 +1,26 @@
+body {
+    font-family: Arial, sans-serif;
+
+  }
+  
+  .flex-container{
+    display: flex;
+    background-color: rgb(255, 255, 255);
+}
+
+.flex-container div {
+    background-color: #f1f1f1;
+    margin: 10px;
+    padding: 10px;
+    font-size: 20px;
+}
+.reverse{
+    display: inline;
+    flex-direction: row-reverse;
+  }
+
+#p1{
+    display: flex;
+    justify-content: center;
+
+  }
