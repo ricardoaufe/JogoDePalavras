@@ -45,6 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function drawludoCanvas() {
+    ludoContext.clearRect(0, 0, ludoCanvas.width, ludoCanvas.height);
     // Desenha a grade do tabuleiro
     ludoContext.strokeStyle = "black";
     for (let i = 0; i <= numCelulas; i++) {
@@ -206,11 +207,27 @@ document.addEventListener("DOMContentLoaded", () => {
       drawPip(center + offset, center + offset);
       break;
     default:
-      console.log("Valor inválido para o dado:", value);
+        console.log("Valor inválido para o dado:", value);
+    }
   }
-}
 
-function rolarDado() {
+
+
+  function rolarDado() {
+    diceValue = Math.floor(Math.random() * 6) + 1;
+    console.log("Valor sorteado do dado:", diceValue);
+
+    let animationCount = 8;
+    const interval = setInterval(() => {
+      const faceTemp = Math.floor(Math.random() * 6) + 1;
+      drawDiceFace(faceTemp);
+      animationCount--;
+      if (animationCount <= 0) {
+        clearInterval(interval);
+        drawDiceFace(diceValue);
+      }
+    }, 100);
+  }
   diceValue = Math.floor(Math.random() * 6) + 1;
   console.log("Valor sorteado do dado:", diceValue);
 
@@ -224,15 +241,19 @@ function rolarDado() {
       drawDiceFace(diceValue);
     }
   }, 100);
-}
+  
 
-  
-  // Configura o evento de clique no botão "Rolar dado"
-  document.getElementById("rollButton").addEventListener("click", rolarDado);
-  
-  // Desenha a face inicial do dado
-  drawDiceFace(diceValue);
+
+
+document.getElementById("rollButton").addEventListener("click", function() {
+  console.log("Botão clicado - iniciando rolagem do dado.");
+  rolarDado();
+  moverPeca(pecasVermelhas[0], diceValue);
 });
+  
+  // Desenha a face inicial do dado 
+  drawDiceFace(diceValue);
+  });
 
 
 class Peca {
@@ -528,6 +549,7 @@ function desenharPecas() {
 }
 
 function moverPeca(peca, diceValue) {
+  console.log("Executando função moverPeca com diceValue:", diceValue);
   if (pecasVermelhas.length > 0) {
     console.log('Posição inicial da primeira peça:', pecasVermelhas[0].posicao);
   }
@@ -544,21 +566,20 @@ function moverPeca(peca, diceValue) {
   } else {
     let novaPosicao = peca.posicaoAtual + diceValue;
     // Verifica se o movimento é válido (não ultrapassa a rota)
-    if (novaPosicao >= peca.rota.length) {
-     novaPosicao = peca.rota.lenght - 1; // Coloca na última posição da rota
+    if (novaPosicao < peca.rota.length) {
+     peca.posicaoAtual = novaPosicao;
+     console.log('Peça movida para a posição:', novaPosicao);
     }
     peca.moverPara(novaPosicao);
     console.log(`Peça movida para a posição ${novaPosicao}`);
   // Após atualizar a posição, é hora de redesenhar as peças
   }
   desenharPecas();
-}
+  console.log()
+  }
 
-const dado = rolarDado();
-console.log("Valor do dado:", dado);
 
-const minhaPeca = pecasVermelhas[0];
-moverPeca(minhaPeca, dado);
+
 
 function desenharRota(rota, cor = 'black') {
   // Desenha linhas conectando os pontos da rota
@@ -592,4 +613,8 @@ function desenharRota(rota, cor = 'black') {
     ludoContext.fillStyle = cor;
     ludoContext.fillText(index, x + 8, y - 8);
   });
-}
+  
+  }
+
+  desenharRota(rotaVermelha, 'red');
+
