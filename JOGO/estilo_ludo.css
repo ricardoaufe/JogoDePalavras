@@ -1,7 +1,11 @@
 body{
-    background-color: forestgreen;
+    background-color: #cccccc;
+ 
 }
 
+h1{
+    text-align: center;
+}
 
 #ludoCanvas{
     display: flex;
@@ -9,4 +13,20 @@ body{
     align-items: center;
     background-color: white;
 }
-
+  /* Estilo básico para o canvas do dado */
+#diceCanvas {
+      border: 2px solid black;
+      margin-bottom: 10px;
+    }
+button {
+    background-color: #4CAF50; /* Verde */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
