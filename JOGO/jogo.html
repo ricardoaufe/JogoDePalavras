@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <title> Jogo de Palavras</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="estilo_jogo.css">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        
+            <div class="container-button">
+                <a href="introducao.html" class="botao">Introdução</a>
+                <a href="sobre.html" class="botao">Nós</a>
+                <a href="jogo.html" class="botao">Jogo</a>
+            </div>
+        
+        <div id="fileInput">
+            <input type="file" id = "fileInput" accept=".txt">
+        </div>
+
+        <h1>Jogo de Palavras</h1>
+
+        <div class="container">
+            <div id="timerDisplay">Tempo restante: 60 seg</div>
+            <canvas id = 'jogoPalavra' width="700px" height = '450px'></canvas>
+            <h2 id="pontuacao">Pontuação: <span id = 'scoreDisplay'>0</span></h2>
+        </div>
+
+
+        <div>
+            <p id="palavraFormada-text">Palavra Formada:</p>
+            <div id = 'palavraFormada' class='wordDisplay'></div>
+        </div>
+
+
+        <div id="gameStart">
+            <button id = 'iniciarJogo' class = 'startButton'>Jogar</button>
+        </div>
+        
+        <div id="modoJogo">
+            <button id="facil">Fácil</button>
+            <button id="medio">Médio</button>
+            <button id="dificil">Difícil</button>
+        </div>  
+
+
+       <script src="jogo.js"></script>
+    </body>

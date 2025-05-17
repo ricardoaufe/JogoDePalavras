@@ -2,6 +2,9 @@
     display: flex;
     justify-content: space-evenly;
     padding: 20px;
+    top: 0;                 
+    left: 0;
+    right: 0;
   }
   
   .botao {
@@ -103,7 +106,7 @@ iframe{
     border-radius: 20px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     padding: 30px;
-    width: 500px;
+    width: 800px;
     max-width: 90%;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     font-size: 50px;
