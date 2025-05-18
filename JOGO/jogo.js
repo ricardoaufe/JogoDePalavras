@@ -1,3 +1,4 @@
+
 // Declaração de variáveis globais
 let palavrasValidas = [];
 let score = 0;
@@ -14,7 +15,7 @@ const validarPalavraButton = document.getElementById("validarPalavra");
 
 // Array e string para letras
 const letters = [];
-const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const alphabet = "ABBCCDDEFFGGHIJKLLMMNNOPQRRSSTTUVVWXYZ";
 const vogais = "AAAEEEIIIOOOUU"; // Repetimos as vogais para aumentar sua probabilidade
 const weightedAlphabet = alphabet + vogais; // Junta tudo
 
@@ -113,7 +114,7 @@ document.addEventListener("keydown", function(event) {
     event.preventDefault();
     // Validação: converte a palavra formada para uppercase (pois as letras são maiúsculas)
     if (palavrasValidas.includes(selectedWord.toUpperCase())) {
-      score += 10;
+      score += selectedWord.length;
       document.getElementById("scoreDisplay").textContent = score;
       deleteWord();
     } else {
@@ -137,14 +138,14 @@ function startGame(dificuldade) {
   let speed, intervalo;
   if(dificuldade == 'facil'){
     speed = 1;
-    intervalo = 600;
+    intervalo = 550;
   } else if (dificuldade == 'medio'){
     speed = 2;
-    intervalo = 600;
+    intervalo = 550;
 
   } else if (dificuldade == 'dificil'){
     speed = 3;
-    intervalo = 600;
+    intervalo = 550;
   
   }
   
