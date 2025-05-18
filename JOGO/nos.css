@@ -1,57 +1,58 @@
-.container {
-    display: flex;
-    justify-content: space-evenly;
-    padding: 20px;
-  }
-.botao {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 150px;
-    height: 40px;
-    background-color: lightsteelblue;
-    color: darkblue;
-    font-size: large;
-    font-weight: bold;
-    border-radius: 8px;
-    text-decoration: none;
-    outline: 3px solid;
-    transition: transform 0.2s ease, background-color 0.2s ease;
-  }  
-.botao:hover {
-    transform: translateY(5px);
-    background-color: #b0c4de;
-  }
-  
-.botao:hover{
-    background-color: #5a9bd4;
-   transform: translateY(10px);
-}
-
-
 body {
-    font-family: Arial, sans-serif;
-
-  }
-  
-  .flex-container{
-    display: flex;
-    background-color: rgb(255, 255, 255);
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: url("plano-de-fundo-da-area-de-trabalho-moderno-vetor-de-desenho-geometrico-azul_53876-135923.avif");
+  background-size: cover;
+  color: #000;
 }
 
-.flex-container div {
-    background-color: #f1f1f1;
-    margin: 10px;
-    padding: 10px;
-    font-size: 20px;
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 110px;
+  gap: 250px;
 }
-.reverse{
-    display: inline;
-    flex-direction: row-reverse;
-  }
 
-#p1{
-    display: flex;
-    justify-content: center;
+.profile {
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  max-width: 1000px;
+  width: 90%;
+}
 
-  }
+.profile.reverse {
+  flex-direction: row-reverse;
+}
+
+.profile img {
+  width: 300px;
+  height: auto;
+  object-fit: cover;
+}
+
+.info {
+  padding: 2rem;
+}
+
+.info h2 {
+  font-size: 1.5rem;
+  color: #000;
+  margin-bottom: 0.5rem;
+}
+
+.info a {
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.info p {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+  line-height: 1.6;
+}
