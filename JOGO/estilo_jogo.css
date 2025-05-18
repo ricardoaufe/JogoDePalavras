@@ -137,3 +137,11 @@ p{
     justify-content: center;
     text-align: center;
 }
+
+#teste{
+    display: flex;
+    justify-content: center;
+    gap: 3px;
+    text-align: center;
+    flex-direction: column;
+}

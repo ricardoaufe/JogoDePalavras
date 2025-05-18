@@ -12,13 +12,10 @@ const ctx = canvas.getContext("2d");
 const iniciarJogoButton = document.getElementById("iniciarJogo");
 const validarPalavraButton = document.getElementById("validarPalavra");
 
-// Ajuste do canvas
-
-
 // Array e string para letras
 const letters = [];
 const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-const vogais = "AAEEIIOOUU"; // Repetimos as vogais para aumentar sua probabilidade
+const vogais = "AAAEEEIIIOOOUU"; // Repetimos as vogais para aumentar sua probabilidade
 const weightedAlphabet = alphabet + vogais; // Junta tudo
 
 let tempoRestante = 60;
@@ -90,7 +87,7 @@ canvas.addEventListener("click", (event) => {
     const xMin = letter.x - padding;
     const xMax = letter.x + textWidth + padding;
     const yMin = letterTop - padding;
-    const yMa x = letter.y + padding;
+    const yMax = letter.y + padding;
     
     if (offsetX > xMin && offsetX < xMax && offsetY > yMin && offsetY < yMax) {
       selectedWord += letter.char;
@@ -134,22 +131,20 @@ function deleteWord() {
   document.getElementById("palavraFormada").textContent = "";
 }
 
-
-
 // Listener para o botão de iniciar o jogo
  
 function startGame(dificuldade) {
   let speed, intervalo;
   if(dificuldade == 'facil'){
     speed = 1;
-    intervalo = 1500;
+    intervalo = 600;
   } else if (dificuldade == 'medio'){
     speed = 2;
-    intervalo = 1000;
+    intervalo = 600;
 
   } else if (dificuldade == 'dificil'){
     speed = 3;
-    intervalo = 700;
+    intervalo = 600;
   
   }
   
