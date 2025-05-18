@@ -8,12 +8,12 @@ let letterInterval;
 // Obtendo referências dos elementos do DOM
 const canvas = document.getElementById("jogoPalavra");
 const ctx = canvas.getContext("2d");
+
 const iniciarJogoButton = document.getElementById("iniciarJogo");
 const validarPalavraButton = document.getElementById("validarPalavra");
 
 // Ajuste do canvas
-canvas.width = window.innerWidth * 0.5; 
-canvas.height = window.innerHeight * 0.5;
+
 
 // Array e string para letras
 const letters = [];
@@ -41,25 +41,12 @@ function startTimer(){
 
 function endGame(){
   clearInterval(letterInterval); // Para a geração de letras
-  alert(`Parabéns, sua pontuação foi: ${score}`)
+  alert(`Parabéns!, sua pontuação foi: ${score}`)
   location.reload();
 }
 
 // Lê o arquivo palavras.txt usando FileReader (o usuário precisa selecionar o arquivo)
-document.getElementById('fileInput').addEventListener('change', function(e) {
-  const file = e.target.files[0];
-  if (!file) return;
-  
-  const reader = new FileReader();
-  reader.onload = function(event) {
-    palavrasValidas = event.target.result
-      .split("\n")
-      .map(line => line.trim().toUpperCase())  // Converte todas as linhas para uppercase
-      .filter(line => line !== "");             // Remove linhas vazias
-    console.log("Palavras válidas carregadas:", palavrasValidas);
-  };
-  reader.readAsText(file);
-});
+
 
 // Função para gerar letras aleatórias
 function generateLetter() {
@@ -70,35 +57,20 @@ function generateLetter() {
     speed: 1
   };
   letters.push(letter);
-
-  // Remove a letra se ela não for clicada após 10 segundos
-  setTimeout(() => {
-    const idx = letters.indexOf(letter);
-    if (idx !== -1) {
-      letters.splice(idx, 1);
-    }
-  }, 5000); // 5 segundos
+  
 }   
-
-// Se desejar que letras sejam geradas antes de iniciar o jogo, comente ou remova a seguinte linha:
-// letterInterval = setInterval(generateLetter, 2500);
 
 // Função de atualização do canvas (animação)
 function update() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.clearRect(0, 0, canvas.width, canvas.height); // limpa toda a área do canvas  
 
   letters.forEach((letter, index) => {
-    letter.y += letter.speed;
+    letter.y += letter.speed; // o ' y ' + speed faz com que a letra desça (percorra o eixo das ordenadas)
     ctx.font = "30px Arial";
-    ctx.fillText(letter.char, letter.x, letter.y);
-    // Limita a posição x e y para que as letras não saiam do canvas
-   
-
-    // Remove a letra se ela ultrapassar o final do canvas
-   
+    ctx.fillText(letter.char, letter.x, letter.y); // desenha o caractere (letter.char) randomizado nas posições x e y (letter.x, letter.y)
   });
 
-  requestAnimationFrame(update);
+  requestAnimationFrame(update); //chama a função update() novamente, criando um loop infinito para manter a animação atualizada
 }
 
 update();
@@ -112,13 +84,13 @@ canvas.addEventListener("click", (event) => {
     ctx.font = "50px Arial";
     const metrics = ctx.measureText(letter.char);
     const textWidth = metrics.width;
-    const textHeight = 30; // Altura aproximada conforme o tamanho da fonte
+    const textHeight = 50; // Altura aproximada conforme o tamanho da fonte
     const letterTop = letter.y - textHeight;
 
     const xMin = letter.x - padding;
     const xMax = letter.x + textWidth + padding;
     const yMin = letterTop - padding;
-    const yMax = letter.y + padding;
+    const yMa x = letter.y + padding;
     
     if (offsetX > xMin && offsetX < xMax && offsetY > yMin && offsetY < yMax) {
       selectedWord += letter.char;
@@ -166,7 +138,7 @@ function deleteWord() {
 
 // Listener para o botão de iniciar o jogo
  
-  function startGame(dificuldade) {
+function startGame(dificuldade) {
   let speed, intervalo;
   if(dificuldade == 'facil'){
     speed = 1;
@@ -183,13 +155,12 @@ function deleteWord() {
   
   // Exibe elementos do jogo
   canvas.style.display = "block";
-  document.getElementById("palavraFormada").textContent = "block";
+  document.getElementById("palavraFormada").style.display = "block";
   document.getElementById('scoreDisplay').style.display = "block";
   document.getElementById('pontuacao').style.display = "block";
   document.getElementById('palavraFormada-text').style.display = "block";
   document.getElementById('timerDisplay').style.display = "block";
 
-  
   // Oculta o container de dificuldades
   document.getElementById("modoJogo").style.display = "none";
 
@@ -210,28 +181,6 @@ function deleteWord() {
   startTimer();
 }
 
-// Primeiro, ao clicar em "Jogar", mostramos as dificuldades
-document.getElementById("iniciarJogo").addEventListener("click", function() {
-  // Oculta o botão "Jogar"
-  this.style.display = "none";
-  // Exibe o container de dificuldades
-  document.getElementById("modoJogo").style.display = "flex";
-  document.getElementById("modoJogo").style.justifyContent = "center";
-  document.getElementById("modoJogo").style.flexDirection = "row";
 
-});
-
-// Eventos para os botões de dificuldade
-document.getElementById("facil").addEventListener("click", function() {
-  startGame("facil");
-});
-document.getElementById("medio").addEventListener("click", function() {
-  startGame("medio");
-});
-document.getElementById("dificil").addEventListener("click", function() {
-  startGame("dificil");
-});
-
-  document.getElementById('medio').style.display = "block";
 
 
