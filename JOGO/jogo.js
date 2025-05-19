@@ -125,7 +125,6 @@ document.addEventListener("keydown", function(event) {
 });
 
 
-
 // Função para limpar a palavra formada
 function deleteWord() {
   selectedWord = "";
@@ -133,7 +132,6 @@ function deleteWord() {
 }
 
 // Listener para o botão de iniciar o jogo
- 
 function startGame(dificuldade) {
   let speed, intervalo;
   if(dificuldade == 'facil'){
@@ -176,7 +174,3 @@ function startGame(dificuldade) {
 
   startTimer();
 }
-
-
-
-
