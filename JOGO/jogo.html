@@ -18,18 +18,19 @@
         <div id="fileInput">
             <input type="file" id = "fileInput" accept=".txt">
         </div>
-
+        
         <h1>Jogo de Palavras</h1>
 
         <div class="container">
             <div id="timerDisplay">Tempo restante: 60seg</div>
             <canvas id = 'jogoPalavra' width="900px" height = '500px'></canvas>
-            <h2 id="pontuacao">Pontuação: <span id = 'scoreDisplay'>0</span></h2>
+            <h2 id="pontuacao">Pontuação: <span id = 'scoreDisplay'>0</span> pontos</h2>
+            <p id = "multiplier"> 2X !</p>
         </div>
 
 
-        <div id = 'teste'>
-            <p id="palavraFormada-text">Palavra Formada:</p>
+        <div id = 'HUD'></div>
+            <h3 id="palavraFormada-text">Palavra Formada:</h3>
             <div id = 'palavraFormada' class='wordDisplay'></div>
         </div>
 
@@ -37,13 +38,13 @@
         <div id="gameStart">
             <button id = 'iniciarJogo' class = 'startButton'>Jogar</button>
         </div>
-        
+            
         <div id="modoJogo">
             <button id="facil">Fácil</button>
             <button id="medio">Médio</button>
             <button id="dificil">Difícil</button>
         </div>  
-
+       
 
        <script src="jogo.js"></script>
        <script src="main.js"></script>

@@ -8,10 +8,12 @@ document.getElementById('fileInput').addEventListener('change', function(e) {
     palavrasValidas = event.target.result
       .split("\n")
       .map(line => line.trim().toUpperCase())  // Converte todas as linhas para uppercase
-      .filter(line => line !== "");             // Remove linhas vazias
+      .filter(line => line !== "");            // Remove linhas vazias
     console.log("Palavras válidas carregadas:", palavrasValidas);
   };
   reader.readAsText(file);
+  document.getElementById("fileInput").style.display = "none";
+
 });
 
 
