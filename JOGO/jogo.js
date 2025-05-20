@@ -186,10 +186,10 @@ document.addEventListener("keydown", function(event) {
     if (palavrasValidas.includes(selectedWord.toUpperCase())) { 
       score += selectedWord.length * scoreMultiplier;
       document.getElementById("scoreDisplay").textContent = score;
-      deleteWord(); // só apaga tudo se Enter for pressionado
+      deleteWord();
     } else {
       alert("Palavra inválida!");
-      deleteWord(); // mantém apenas para Enter
+      deleteWord();
     }
   }
 });

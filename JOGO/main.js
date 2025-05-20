@@ -6,7 +6,7 @@ document.getElementById('fileInput').addEventListener('change', function(e) { //
   reader.onload = function(event) {
     palavrasValidas = event.target.result
       .split("\n")
-      .map(line => line.trim().toUpperCase())  // converte todas as linhas para uppercase
+      .map(line => line.trim().toUpperCase()) // converte todas as linhas para uppercase
       .filter(line => line !== "");            // remove linhas vazias
     console.log("Palavras válidas carregadas:", palavrasValidas);
   };
