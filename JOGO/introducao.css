@@ -30,7 +30,7 @@
   
 .botao:hover{
     background-color: #5a9bd4;
-   transform: translateY(10px);
+    transform: translateY(10px);
 }
 
 
@@ -81,18 +81,13 @@ h1, h2{
     size: 40px;
 }
 
-iframe{
-    display:block;
-    margin: 0 auto;
-}
-
-
 @keyframes fadeInUp {
     to {
       opacity: 1;
       transform: translateY(0);
     }
   }
+
 .cards-container {
     display: flex;
     justify-content: center;

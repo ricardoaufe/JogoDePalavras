@@ -34,12 +34,12 @@ function startGame(dificuldade) {
   } else if (dificuldade == 'medio'){
     speed = 2;
     intervalo = 550;
-    powerUpSpeed = 3;
+    powerUpSpeed = 2.5;
 
   } else if (dificuldade == 'dificil'){
     speed = 3;
     intervalo = 550;
-    powerUpSpeed = 4;
+    powerUpSpeed = 3.5;
     
   }
   
@@ -124,8 +124,8 @@ function update() {
       ctx.fillStyle = "transparent";
       ctx.fillRect(powerUp.x, powerUp.y, powerUp.width, powerUp.height);
       ctx.fillStyle = "black";
-      ctx.font = "20px Arial";
-      ctx.fillText("2X", powerUp.x + 5, powerUp.y + 28);
+      ctx.font = "30px Arial";
+      ctx.fillText("2X!", powerUp.x + 5, powerUp.y + 28);
     }
     if (powerUp.y > canvas.height) {
       powerUps.splice(index, 1);

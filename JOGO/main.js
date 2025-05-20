@@ -12,7 +12,6 @@ document.getElementById('fileInput').addEventListener('change', function(e) { //
   };
   reader.readAsText(file);
   document.getElementById("fileInput").style.display = "none";
-
 });
 
 
@@ -24,7 +23,6 @@ document.getElementById("iniciarJogo").addEventListener("click", function() { //
   document.getElementById("modoJogo").style.display = "flex";
   document.getElementById("modoJogo").style.justifyContent = "center";
   document.getElementById("modoJogo").style.flexDirection = "row";
-
 });
 
 // eventos para os botões de dificuldade

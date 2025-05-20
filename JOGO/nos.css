@@ -52,7 +52,11 @@ body {
 }
 
 .info p {
+  display: flex;
   font-size: 1rem;
   margin: 0.5rem 0;
   line-height: 1.6;
+  justify-content: center;
+  color: black;
+  font-size: 20px;
 }
