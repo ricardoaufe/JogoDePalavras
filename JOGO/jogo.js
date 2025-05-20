@@ -179,18 +179,17 @@ canvas.addEventListener("click", (event) => { //mouse
 
 document.addEventListener("keydown", function(event) { 
   if (event.key === "Backspace") {
-    // Remover APENAS o último caractere da palavra formada
     selectedWord = selectedWord.slice(0, -1);
     document.getElementById("palavraFormada").textContent = selectedWord;
   } 
-  else if (event.key === "Enter") { // Se Enter for pressionado, valida a palavra
+  else if (event.key === "Enter") { // se Enter for pressionado, valida a palavra
     if (palavrasValidas.includes(selectedWord.toUpperCase())) { 
       score += selectedWord.length * scoreMultiplier;
       document.getElementById("scoreDisplay").textContent = score;
-      deleteWord(); // Só apaga tudo se Enter for pressionado
+      deleteWord(); // só apaga tudo se Enter for pressionado
     } else {
       alert("Palavra inválida!");
-      deleteWord(); // Mantém apenas para Enter
+      deleteWord(); // mantém apenas para Enter
     }
   }
 });
